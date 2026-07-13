@@ -436,16 +436,41 @@ function AboutSection() {
   );
 }
 
-function ReviewsSection({ review, onPrev, onNext }) {
+type Review = {
+  text: string;
+  image: string;
+  name: string;
+  role: string;
+};
+
+type ReviewsSectionProps = {
+  review: Review;
+  onPrev: () => void;
+  onNext: () => void;
+};
+
+function ReviewsSection({
+  review,
+  onPrev,
+  onNext,
+}: ReviewsSectionProps) {
   return (
     <section id="reviews" className="reviews">
       <div className="reviewsLeft">
-        <h2 className="reviewsTitle">Quotes<br />From Clients</h2>
+        <h2 className="reviewsTitle">
+          Quotes
+          <br />
+          From Clients
+        </h2>
 
         <div className="reviewArrows">
-          <button type="button" onClick={onPrev}>←</button>
+          <button type="button" onClick={onPrev}>
+            ←
+          </button>
           <span />
-          <button type="button" onClick={onNext}>→</button>
+          <button type="button" onClick={onNext}>
+            →
+          </button>
         </div>
       </div>
 
@@ -463,8 +488,15 @@ function ReviewsSection({ review, onPrev, onNext }) {
     </section>
   );
 }
+type FaqSectionProps = {
+  openFaq: number;
+  onToggle: (index: number) => void;
+};
 
-function FaqSection({ openFaq, onToggle }) {
+function FaqSection({
+  openFaq,
+  onToggle,
+}: FaqSectionProps) {
   return (
     <section id="faq" className="faq">
       <div className="faqLeft">
